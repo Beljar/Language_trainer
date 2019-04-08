@@ -121,7 +121,8 @@ def import_quest_csv(path = None):
     try:
         print ("reading file : " + path)
         with open(path, mode="r") as f:
-            reader = csv.reader(f, delimiter = ",", quotechar = '"')
+            reader = csv.reader(f, quotechar = '"', delimiter = ",",
+            quoting=csv.QUOTE_ALL, skipinitialspace=True)
             for row in reader:
                 dic[row[0]] = row[1]
     except:
